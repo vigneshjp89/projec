@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PRKDB</title>
+<meta name="decription" content="My Add Moive">
+<meta charset="utf-8">
+<link rel="stylesheet" href="./css/reset.css">
+<link rel="stylesheet" href="./css/sty.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300 ">
+
+</head>
+<body>
+<header>
+
+
+   <nav>
+     <img class="topimg" src="./images/projector-logo.png">
+   <ul class="tool">
+
+      <li><a href="#">Home</a></li>
+      <li>     <a href="#">Add movie</a></li>
+   </ul>
+</nav>
+</header>
+  <h2>Add a Movie</h2><br/>
+<form class="clearfix" action="/">
+
+
+<label for="Movie">Movie Name</label><br/>
+<input id="Movie" type="text" name="movie_name"/><br/>
+<label for="Release">Release year</label><br/>
+<input id="Release" type="text" name="release_year"/><br/>
+<ul>
+  <li><label for="Lang">Language</label><br/>
+<select id="Lang">
+  <option value="english">English</option>
+  <option value="tamil">Tamil</option>
+</select></li>
+<li><label for="Rating">Rating</label><br/>
+<select id="Rating">
+  <option value="5">5</option>
+  <option value="4">4</option>
+</select></li></ul><br/>
+<label for="Tnail">Thumbnail URL</label></br>
+<input id="Tnail" type="url" name="link_name"></br>
+<label>Plot</label></br>
+<textarea rows="6" name="plot"></textarea><br/>
+<label for="Poster">Poster URL</label><br/>
+<input id="Poster" type="url" name="post"><br/>
+<label for="Cast" >Cast</label><br/>
+  <textarea id="Cast" rows="6" name="cast"></textarea><br/>
+  <input id="Submit" type="submit" value="Save">
+</form>
+<footer><img class="botimg" src="./images/projector-logo.png"></footer>
+</body>
+</html>

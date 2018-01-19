@@ -1,0 +1,66 @@
+.topimg{
+  width:200px;
+  height: 40px;
+
+}
+.botimg{
+width:200px;
+height: 40px;
+float:right;
+margin-right: 50px;
+}
+form{
+
+  margin:  0 auto;
+  width :500px;
+  line-height: 20px;
+}
+
+.clearfix{
+  overflow: auto;
+}
+h2{
+  font-size: 28px;
+    line-height: 40px;
+    text-align: center;
+}
+.tool{
+  float:right;
+
+}
+body{
+  background-color:#442D4B;
+  font-family: 'Lato',sans-serif;
+  color:white;
+}
+label{
+  text-align: left;
+}
+li{
+
+  display: inline-block;
+}
+a:link{
+  color: #ffcb59;
+}
+textarea,select,option,input{
+  background-color: #442D4B;color: white;
+  border:1px solid white;
+width: 100%;
+
+}
+#Submit{
+  background-color: #ffcb59;
+  border-width: 0px;
+  margin: auto;
+}
+footer{
+  background-color: black;
+}
+
+
+nav{
+  padding-left:50px;
+  padding-top: 50px;
+  padding-right: 50px;
+}
