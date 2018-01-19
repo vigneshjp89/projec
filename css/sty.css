@@ -43,16 +43,21 @@ li{
 a:link{
   color: #ffcb59;
 }
-textarea,select,option,input{
+textarea,select,input{
   background-color: #442D4B;color: white;
   border:1px solid white;
 width: 100%;
 
 }
+.samp{
+  width: 50%;
+  box-sizing: content-box;
+}
 #Submit{
   background-color: #ffcb59;
   border-width: 0px;
-  margin: auto;
+  margin: 0 200px;
+  width:100px;
 }
 footer{
   background-color: black;
