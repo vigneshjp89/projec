@@ -49,7 +49,7 @@ for(var i=0;i<data.length;i++){
   for(var j=0;j<objectSchema.movies.length;j++)
   {
     console.log(objectSchema.movies[j].name);
-    var cat=$('<div class="movie fleft"><a href="#"><div class="poster"><img src="'+objectSchema.movies[j].posterUrl+'"/></div></a><p class="release year">'+objectSchema.movies[j].releaseYear+'</p><h4 class="name">'+objectSchema.movies[j].name+'</h4></div>');
+    var cat=$('<div class="movie fleft"><a href="#" onclick="_gs(\'event\', \'Click the movie\')"><div class="poster"><img src="'+objectSchema.movies[j].posterUrl+'"/></div></a><p class="release year">'+objectSchema.movies[j].releaseYear+'</p><h4 class="name">'+objectSchema.movies[j].name+'</h4></div>');
      categoryContent.push(cat);
   }
 
