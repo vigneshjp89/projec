@@ -12,6 +12,22 @@
   <link rel="shortcut icon" type="image/png" href="favicon.ico" />
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/movie.css">
+  <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
+  <script>
+
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('16bd28c3ebe1d7318d90', {
+      cluster: 'ap2',
+      forceTLS: true
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+      alert(JSON.stringify(data));
+    });
+  </script>
 </head>
 
 <body class="container">
@@ -26,6 +42,12 @@
   <section class="content">
 
   </section>
+  <div class="pusher">
+   <p>
+    Try publishing an event to channel <code>my-channel</code>
+    with event name <code>my-event</code>.
+  </p>
+  </div>
   <div class="clearfix"></div>
   <footer>
     <img class="fright logo" width="200" src="images/projector-logo.png" alt="logo" />
