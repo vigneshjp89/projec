@@ -9,6 +9,19 @@ var index = require('./routes/index');
 var movies = require('./routes/movies');
 var dbservice=require('./services/dbservice');
 var app = express();
+var Pusher = require('pusher');
+
+var channels_client = new Pusher({
+  appId: '877778',
+  key: '16bd28c3ebe1d7318d90',
+  secret: '0d561a531f329154eb51',
+  cluster: 'ap2',
+  encrypted: true
+});
+
+channels_client.trigger('my-channel', 'my-event', {
+  "message": "hello world"
+});
 
 dbservice.createConnection();
 // view engine setup
