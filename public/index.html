@@ -15,8 +15,8 @@
   <script>
 
     // Enable pusher logging - don't include this in production
-    Pusher.logToConsole = true;
-
+    //Pusher.logToConsole = true;
+function push(){
     var pusher = new Pusher('16bd28c3ebe1d7318d90', {
       cluster: 'ap2',
       forceTLS: true
@@ -24,8 +24,10 @@
 
     var channel = pusher.subscribe('my-channel');
     channel.bind('my-event', function(data) {
+      console.log("on pusher event");
       alert(JSON.stringify(data));
     });
+}
   </script>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -51,7 +53,7 @@
   <section class="content">
 
   </section>
-  <div class="clearfix"></div>
+  <div class="clearfix" onclick="push()"></div>
   <div class="pusher">
   <p>
     Try publishing an event to channel <code>my-channel</code>
