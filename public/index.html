@@ -16,7 +16,7 @@
 
     // Enable pusher logging - don't include this in production
     //Pusher.logToConsole = true;
-function push(){
+
     var pusher = new Pusher('16bd28c3ebe1d7318d90', {
       cluster: 'ap2',
       forceTLS: true
@@ -27,7 +27,6 @@ function push(){
       console.log("on pusher event");
       alert(JSON.stringify(data));
     });
-}
   </script>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
