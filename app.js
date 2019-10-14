@@ -20,7 +20,7 @@ var channels_client = new Pusher({
 });
 
 channels_client.trigger('my-channel', 'my-event', {
-  "message": "hello world"
+  "message": "Movie Selected"
 });
 
 dbservice.createConnection();
