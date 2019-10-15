@@ -1,5 +1,14 @@
 var movies=require('./movieData');
 var dbservice=require('../services/dbservice.js');
+var channels_client = new Pusher({
+  appId: '877778',
+  key: '16bd28c3ebe1d7318d90',
+  secret: '0d561a531f329154eb51',
+  cluster: 'ap2',
+  encrypted: true
+});
+
+
 exports.getAllMovies= function(req,res){
  var db=dbservice.database;
  var moviesCollection=db.collection("movies");
@@ -18,6 +27,9 @@ exports.addNewMovie=function(req,res,next){
   var db=dbservice.database;
   var moviesCollection=db.collection("movies");
   var movie=req.body;
+  channels_client.trigger('my-channel', 'my-event', {
+    "message": movie.movie_name+" added"
+  });
   //window.alert(movie);
   var data={
     "name": movie.movie_name,
