@@ -19,7 +19,7 @@ var channels_client = new Pusher({
   encrypted: true
 });
 
-channels_client.trigger('my-channel', 'my-event', {
+channels_client.trigger('my-channel', 'client-event', {
   "message": "Movie Selected"
 });
 

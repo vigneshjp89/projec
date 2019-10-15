@@ -23,10 +23,10 @@
     });
 
     var channel = pusher.subscribe('my-channel');
-    channel.trigger('client-name',{message:"Client Event"});
+    
     channel.bind('my-event', function(data) {
       alert(JSON.stringify(data));
-      
+      channel.trigger('client-name',{message:"Client Event"});
     });
     channel.bind('client-name', function(data) {
       alert(JSON.stringify(data));
