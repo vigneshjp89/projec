@@ -13,11 +13,12 @@ exports.getAllMovies= function(req,res){
    return res.json(outputJSON);
  });
   //return res.json(movies);*
-
 }
 exports.addNewMovie=function(req,res,next){
   var db=dbservice.database;
-  var movie=req.body,
+  //var moviesCollection=db.collection("movies");
+  var movie=req.body;
+  console.log(movie);
   movieCollection=db.collection("movies");
   movieCollection.insert(movie).then(function(save_data){
     return res.json({
