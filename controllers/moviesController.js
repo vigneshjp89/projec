@@ -18,16 +18,30 @@ exports.addNewMovie=function(req,res,next){
   var db=dbservice.database;
   //var moviesCollection=db.collection("movies");
   var movie=req.body;
-  var data={
-    "name": movie.movie_name,
-    "thumbnailUrl": movie.link_name,
-    "posterUrl": movie.post,
-    "releaseYear": movie.release_year,
-    "rating": movie.rating,
-    "language": movie.lang,
-    "plot": movie.plot,
-    "cast": movie.cast
-};
+  $.ajax({
+    type:"POST",
+    url:"https://webhook.site/7ad5d03b-9afd-4af4-8cc6-dcef779a2be1",
+    data:movie.toString(),
+    dataType:"text",
+    success:function(response){
+      console.log("Data from success",response);
+  var data=   formObject(response.data);
+  constructDOM(data);
+    },
+    error:function(err){
+      console.log("Data from error",err);
+    }
+  });
+//   var data={
+//     "name": movie.movie_name,
+//     "thumbnailUrl": movie.link_name,
+//     "posterUrl": movie.post,
+//     "releaseYear": movie.release_year,
+//     "rating": movie.rating,
+//     "language": movie.lang,
+//     "plot": movie.plot,
+//     "cast": movie.cast
+// };
   movieCollection=db.collection("movies");
   movieCollection.insert(data).then(function(save_data){
     // return res.json({
