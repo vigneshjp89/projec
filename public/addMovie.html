@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="./css/sty.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300 ">
 <script>
-  function added(){
+
   var pusher = new Pusher('16bd28c3ebe1d7318d90', {
       cluster: 'ap2',
       forceTLS: true
@@ -16,10 +16,9 @@
 
     var channel = pusher.subscribe('my-channel');
     channel.bind('my-event', function(data) {
+      console.log("addded");
       alert(Document.getElementByID('Movie').value);
     });
-    console.log("new record added");
-  }
 </script>
 </head>
 <body>
