@@ -18,11 +18,22 @@ exports.addNewMovie=function(req,res,next){
   var db=dbservice.database;
   //var moviesCollection=db.collection("movies");
   var movie=req.body;
-  console.log(movie);
+  var data={
+    "name": movie.movie_name,
+    "thumbnailUrl": movie.link_name,
+    "posterUrl": movie.post,
+    "releaseYear": movie.release_year,
+    "rating": movie.rating,
+    "language": movie.lang,
+    "plot": movie.plot,
+    "cast": movie.cast
+};
   movieCollection=db.collection("movies");
-  movieCollection.insert(movie).then(function(save_data){
-    return res.json({
-      "isSuccess":true
-    });
+  movieCollection.insert(data).then(function(save_data){
+    // return res.json({
+    //   "isSuccess":true
+    // });
+    window.alert("Success");
+    window.location.replace("../public/index.html");
   });
 }
