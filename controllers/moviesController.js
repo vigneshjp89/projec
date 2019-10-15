@@ -22,7 +22,6 @@ exports.addNewMovie=function(req,res,next){
   movieCollection.insert(movie).then(function(save_data){
     return res.json({
       "isSuccess":true
-
     });
   });
 }
