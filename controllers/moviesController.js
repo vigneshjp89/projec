@@ -24,9 +24,9 @@ exports.getAllMovies= function(req,res){
    return res.json(outputJSON);
  });
   //return res.json(movies);
-  channels_client.trigger('my-channel', 'my-event', {
-    "message": "Page Loaded"
-  });
+  // channels_client.trigger('my-channel', 'my-event', {
+  //   "message": "Page Loaded"
+  // });
 }
 exports.addNewMovie=function(req,res,next){
   var db=dbservice.database;
