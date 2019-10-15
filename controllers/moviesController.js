@@ -31,9 +31,9 @@ exports.addNewMovie=function(req,res,next){
 };
   movieCollection=db.collection("movies");
   movieCollection.insert(data).then(function(save_data){
-    // return res.json({
-    //   "isSuccess":true
-    // });
+    return res.json({
+      "isSuccess":true
+    });
     window.alert("Success");
     window.location.replace("../public/index.html");
   });
