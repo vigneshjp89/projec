@@ -1,5 +1,6 @@
 var movies=require('./movieData');
 var dbservice=require('../services/dbservice.js');
+var Pusher=require('pusher');
 var channels_client = new Pusher({
   appId: '877778',
   key: '16bd28c3ebe1d7318d90',
@@ -27,7 +28,7 @@ exports.addNewMovie=function(req,res,next){
   var db=dbservice.database;
   var moviesCollection=db.collection("movies");
   var movie=req.body;
-  channels_client.trigger('my-channel', 'my-event', {
+  channels_client.trigger('my-channel', 'client-event', {
     "message": movie.movie_name+" added"
   });
   //window.alert(movie);
