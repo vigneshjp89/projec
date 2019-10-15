@@ -1,5 +1,14 @@
 var movies=require('./movieData');
 var dbservice=require('../services/dbservice.js');
+var Pusher=require('pusher');
+var channels_client = new Pusher({
+  appId: '877778',
+  key: '16bd28c3ebe1d7318d90',
+  secret: '0d561a531f329154eb51',
+  cluster: 'ap2',
+  encrypted: true
+});
+
 
 
 exports.getAllMovies= function(req,res){
@@ -14,7 +23,10 @@ exports.getAllMovies= function(req,res){
    console.log(outputJSON);
    return res.json(outputJSON);
  });
-  //return res.json(movies);*
+  //return res.json(movies);
+  channels_client.trigger('my-channel', 'my-event', {
+    "message": "Page Loaded"
+  });
 }
 exports.addNewMovie=function(req,res,next){
   var db=dbservice.database;
@@ -38,5 +50,8 @@ exports.addNewMovie=function(req,res,next){
     });
     window.alert("Success");
     window.location.replace("../public/index.html");
+  });
+  channels_client.trigger('my-channel', 'client-event', {
+    "message": "New Record Added"
   });
 }
