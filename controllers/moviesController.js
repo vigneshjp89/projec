@@ -16,6 +16,9 @@ exports.getAllMovies= function(req,res){
  var moviesCollection=db.collection("movies");
  moviesCollection.find().toArray().then(function(result){
    //console.log("RESULT: "+result);
+   channels_client.trigger('presence-my-channel', 'client-event', {
+    "message": "Client Event on Presence channel: Page Loaded"
+  });
    var outputJSON={
      "isSuccess":true,
      "data":result
@@ -23,10 +26,8 @@ exports.getAllMovies= function(req,res){
    console.log(outputJSON);
    return res.json(outputJSON);
  });
-  //return res.json(movies);
-  // channels_client.trigger('my-channel', 'my-event', {
-  //   "message": "Page Loaded"
-  // });
+  return res.json(movies);
+  
 }
 exports.addNewMovie=function(req,res,next){
   var db=dbservice.database;
@@ -45,13 +46,14 @@ exports.addNewMovie=function(req,res,next){
 };
   movieCollection=db.collection("movies");
   movieCollection.insert(data).then(function(save_data){
-    //  res.json({
-    //   "isSuccess":true
-    // });
+    return res.json({
+      "isSuccess":true
+    });
     window.alert("Success");
-    return window.location.replace("../public/index.html");
+    
   });
-  channels_client.trigger('presence-channel', 'client-event', {
+  channels_client.trigger('presence-my-channel', 'client-event', {
     "message": "New Record Added"
   });
+  window.location.replace("../public/index.html");
 }
