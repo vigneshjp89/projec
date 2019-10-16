@@ -51,7 +51,7 @@ exports.addNewMovie=function(req,res,next){
     window.alert("Success");
     window.location.replace("../public/index.html");
   });
-  channels_client.trigger('my-channel', 'client-event', {
+  channels_client.trigger('private-channel', 'client-event', {
     "message": "New Record Added"
   });
 }
