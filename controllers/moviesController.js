@@ -45,13 +45,13 @@ exports.addNewMovie=function(req,res,next){
 };
   movieCollection=db.collection("movies");
   movieCollection.insert(data).then(function(save_data){
-    return res.json({
-      "isSuccess":true
-    });
+    //  res.json({
+    //   "isSuccess":true
+    // });
     window.alert("Success");
-    window.location.replace("../public/index.html");
+    return window.location.replace("../public/index.html");
   });
-  channels_client.trigger('private-channel', 'client-event', {
+  channels_client.trigger('presence-channel', 'client-event', {
     "message": "New Record Added"
   });
 }
