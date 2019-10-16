@@ -22,13 +22,13 @@
       forceTLS: true
     });
 
-    var channel = pusher.subscribe('my-channel');
+    //var channel = pusher.subscribe('my-channel');
     var channel2 = pusher.subscribe('private-channel');
     
-    channel.bind('my-event', function(data) {
-      alert(JSON.stringify(data));
-      //channel.trigger('client-event',{message:"Client Event"});
-    });
+    // channel.bind('my-event', function(data) {
+    //   alert(JSON.stringify(data));
+    //   //channel.trigger('client-event',{message:"Client Event"});
+    // });
     channel2.bind('client-event', function(data) {
       alert(JSON.stringify(data));
     });
