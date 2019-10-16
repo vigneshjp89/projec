@@ -12,23 +12,18 @@ var channels_client = new Pusher({
 
 
 exports.getAllMovies= function(req,res){
- var db=dbservice.database;
- var moviesCollection=db.collection("movies");
-//  channels_client.trigger('presence-my-channel', 'client-event', {
-//   "message": "Client Event on Presence channel: Page Loaded"
-// });
-console.log("In movieController");
- moviesCollection.find().toArray().then(function(result){
-   //console.log("RESULT: "+result);
-   var outputJSON={
-     "isSuccess":true,
-     "data":result
-   }
-   console.log(outputJSON);
-   return res.json(outputJSON);
- });
- //console.log(movies);
-  return res.json(movies);
+  var db=dbservice.database;
+  var moviesCollection=db.collection("movies");
+  moviesCollection.find().toArray().then(function(result){
+    //console.log("RESULT: "+result);
+    var outputJSON={
+      "isSuccess":true,
+      "data":result
+    }
+    console.log(outputJSON);
+    return res.json(outputJSON);
+  });
+   //return res.json(movies);*
   
 }
 exports.addNewMovie=function(req,res,next){
