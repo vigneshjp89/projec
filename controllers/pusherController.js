@@ -19,6 +19,7 @@ exports.auth= function(req,res){
         name: timestamp
       }
     };
+    console.log("Subscribed Successfully");
     var auth = pusher.authenticate(socketId, channel, presenceData);
     res.send(auth);
 }
