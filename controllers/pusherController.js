@@ -24,7 +24,7 @@ exports.auth= function(req,res){
     // });
     var auth = channels_client.authenticate(socketId, channel, presenceData);
     //res.setHeader('Content-Type','application/json');
-    res.sen(auth);
+    res.send(auth);
 }
 // exports.addNewMovie=function(req,res,next){
 //   var db=dbservice.database;
