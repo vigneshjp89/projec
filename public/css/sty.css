@@ -32,6 +32,7 @@ h2{
 }
 .tool{
   float:right;
+  padding-top:10px;
 
 }
 body{
@@ -63,9 +64,14 @@ width: 100%;
   background-color: #ffcb59;
   border-width: 0px;
   margin: 0 200px;
+  margin-top:50px;
+  margin-bottom:50px;
   width:100px;
 }
 footer{
+  position: fixed;
+  width:100%;
+  bottom:0;
 background-color: #000000;
 }
 
@@ -73,12 +79,28 @@ background-color: #000000;
 nav{
 
   padding-left:50px;
-  padding-top: 50px;
+  padding-top: 10px;
+  padding-bottom:10px;
   padding-right: 50px;
+}
+div.container{
+  max-width:600px;
+  margin: auto;
+  background: #976fa3;
+  border-radius: 20px;
 }
 section{
     padding: 0 40px;
     padding-bottom: 84px;
+    margin-left:2px;
+    margin-right:2px;
+    margin-bottom:30px;
+    background: #976fa3;
+}
+header{
+  background: black;
+  margin-top: 3%;
+  margin-bottom: 3%;
 }
 .category{
     margin-bottom: 40px;
