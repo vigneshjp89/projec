@@ -49,11 +49,10 @@ exports.addNewMovie=function(req,res,next){
     return res.json({
       "isSuccess":true
     });
-    window.alert("Success");
     
   });
   channels_client.trigger('presence-my-channel', 'client-event', {
     "message": "New Record Added"
   });
-  window.location.replace("../public/index.html");
+  res.redirect("../public/index.html");
 }
