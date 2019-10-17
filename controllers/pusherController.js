@@ -23,7 +23,8 @@ exports.auth= function(req,res){
     //   console.log();
     // });
     var auth = channels_client.authenticate(socketId, channel, presenceData);
-    res.send(auth);
+    res.set('Content-Type','application/json');
+    res.send({"error":auth});
 }
 // exports.addNewMovie=function(req,res,next){
 //   var db=dbservice.database;
