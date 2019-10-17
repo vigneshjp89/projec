@@ -32,6 +32,9 @@
     channel2.bind('client-event', function(data) {
       alert(JSON.stringify(data));
     });
+    channel2.bind('pusher:subscription_succeeded', function() {
+      alert("Successfully subscribed");
+});
   </script>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
