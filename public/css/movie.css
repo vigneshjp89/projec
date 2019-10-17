@@ -5,7 +5,14 @@ body {
 a {
   color: #00B7FF;
 }
-
+header{
+  background: black;
+  margin-top: 3%;
+  margin-bottom: 100px;
+}
+footer{
+  margin-top: 100px;
+}
 .container {
   background-color: #442D4B;
   color: #ffffff;
@@ -46,7 +53,8 @@ header ul li a {
 }
 
 header, section, footer{
-    padding: 40px;
+    padding-top: 10px;
+    padding-bottom: 30px;
     min-height: 40px;
 }
 
