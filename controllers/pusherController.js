@@ -22,7 +22,7 @@ exports.auth= function(req,res){
     // fetch("https://webhook.site/7ad5d03b-9afd-4af4-8cc6-dcef779a2be1",{method:"POST",body:{"test":"pusher Auth","req":req},headers:{"Content-Type":"application/json"}}).then(function(){
     //   console.log();
     // });
-    var auth = pusher.authenticate(socketId, channel, presenceData);
+    var auth = channels_client.authenticate(socketId, channel, presenceData);
     res.send(auth);
 }
 // exports.addNewMovie=function(req,res,next){
