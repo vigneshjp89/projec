@@ -51,7 +51,7 @@ exports.addNewMovie=function(req,res,next){
     });
     
   });
-  channels_client.trigger('presence-my-channel', 'client-event', {
+  channels_client.trigger('my-test-channel', 'my-event', {
     "message": "New Record Added"
   });
   res.redirect("../public/index.html");

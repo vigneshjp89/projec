@@ -24,11 +24,15 @@
 
     //var channel = pusher.subscribe('my-channel');
     var channel2 = pusher.subscribe('presence-my-channel');
+    var channel = pusher.subscribe('my-test-channel');
     
     // channel.bind('my-event', function(data) {
     //   alert(JSON.stringify(data));
     //   //channel.trigger('client-event',{message:"Client Event"});
     // });
+    channel.bind('my-event',function(data){
+      alert(JSON.stringify(data));
+    });
     channel2.bind('client-event', function(data) {
       alert(JSON.stringify(data));
     });
