@@ -18,6 +18,10 @@
     channel.bind('my-event', function(data) {
       alert(data);
     });
+    Document.getElementById('Submit').onclick=function(){
+      var channel2 = pusher.subscribe('pusher-my-channel');
+    channel.trigger('client-event',{"message":"Client Event Triggered"});
+    }
 </script>
 </head>
 <body>

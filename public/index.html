@@ -37,6 +37,7 @@
       alert(JSON.stringify(data));
     });
     channel2.bind('pusher:subscription_succeeded', function() {
+      channel2.trigger('client-event',{"message":"Channel Subscribed"});
       alert("Successfully subscribed");
 });
   </script>
