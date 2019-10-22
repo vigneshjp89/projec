@@ -51,7 +51,7 @@ a:link{
   color: #ffcb59;
 }
 textarea,select,input{
-  background-color: #442D4B;color: white;
+  background-color: #776688;color: white;
   border:1px solid white;
 width: 100%;
 
@@ -86,7 +86,7 @@ nav{
 div.container{
   max-width:600px;
   margin: auto;
-  background: #976fa3;
+  background: #776688;
   border-radius: 20px;
 }
 section{

@@ -24,5 +24,6 @@ exports.auth= function(req,res){
     // });
     var auth = channels_client.authenticate(socketId, channel, presenceData);
     //res.setHeader('Content-Type','application/json');
+    console.log(auth);
     res.send(auth);
 }
