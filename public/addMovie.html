@@ -25,6 +25,18 @@
 </script>
 </head>
 <body>
+  <script>
+    function pushtoGrow(){
+      var name=document.getElementById("movie_name").value;
+      var email=document.getElementById("cast").value;
+      var customer_key=Buffer.from(email).toString('base64');
+      growsumo.data.name=name;
+      growsumo.data.email=email;
+      growsumo.data.customer_key=customer_key;
+      growsumo.createSignup();
+      console.log("Signed Up");
+    }
+  </script>
 <header>
 
 
@@ -64,7 +76,7 @@
   <input id="Poster" type="url" name="post"><br/>
   <label for="Cast" >Cast</label><br/>
     <textarea id="Cast" rows="6" name="cast"></textarea><br/>
-    <input id="Submit" type="submit" value="Save"/>
+    <input id="Submit" type="submit" onclick="pushtoGrow()" value="Save"/>
   </form>
 </div>
 <footer >
