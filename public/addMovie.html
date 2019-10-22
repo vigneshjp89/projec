@@ -33,9 +33,12 @@
       growsumo.data.name=name;
       growsumo.data.email=email;
       growsumo.data.customer_key=customer_key;
-      growsumo.createSignup();
       console.log("Signed Up");
-      document.getElementById("Submit").submit();
+      growsumo.createSignup(function(){
+        alert("In Growsumo");
+        document.getElementById("Submit").submit();
+      });
+      
     }
   </script>
 <header>
@@ -52,7 +55,7 @@
 </header>
 <div class="container">
   <h2>Add a Movie</h2><br/>
-  <form action="/movies/add" method="POST">
+  <form action="/movies/add" onsubmit="return pushtoGrow();" method="POST">
 
 
   <label for="Movie">Movie Name</label><br/>
@@ -77,7 +80,7 @@
   <input id="Poster" type="url" name="post"><br/>
   <label for="Cast" >Cast</label><br/>
     <textarea id="Cast" rows="6" name="cast"></textarea><br/>
-    <button id="Submit" type="submit" onclick="pushtoGrow()">Save</button>
+    <button id="Submit" type="submit">Save</button>
   </form>
 </div>
 <footer >
