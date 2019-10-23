@@ -39,7 +39,7 @@
 </header>
 <div class="container">
   <h2>Add a Movie</h2><br/>
-  <form action="/movies/add" onsubmit="return pushtoGrow();" method="POST">
+  <form action="/movies/add" onsubmit="return pushtoGrow(event);" method="POST">
 
 
   <label for="Movie">Movie Name</label><br/>
@@ -69,6 +69,7 @@
 </div>
 <script>
     function pushtoGrow(){
+      event.preventDefault();
       var axios=require('axios');
       var name=document.getElementById("movie_name").value;
       var email=document.getElementById("cast").value;
