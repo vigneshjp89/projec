@@ -24,7 +24,7 @@
 </header>
 <div class="container">
   <h2>Add a Movie</h2><br/>
-  <form action="/movies/add" onsubmit="return pushtoGrow(event);" method="POST">
+  <form action="/movies/add" id="mform" onsubmit="return pushtoGrow(event);" method="POST">
     <label for="Movie">Movie Name</label><br/>
     <input id="Movie" type="text" name="movie_name"/><br/>
     <label for="Release">Release year</label><br/>
@@ -64,7 +64,7 @@
       growsumo.data.email=email;
       growsumo.data.customer_key=customer_key;
       growsumo.createSignup();
-      document.getElementById('Submit').submit();
+      document.getElementById('mform').submit();
     }
   </script>
 <footer >
