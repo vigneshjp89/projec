@@ -8,21 +8,6 @@
 <link rel="stylesheet" href="./css/sty.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300 ">
 <script type='text/javascript'>(function() {var gs = document.createElement('script');gs.src = 'https://snippet.growsumo.com/growsumo.min.js';gs.type = 'text/javascript';gs.async = 'true';gs.onload = gs.onreadystatechange = function() {var rs = this.readyState;if (rs && rs != 'complete' && rs != 'loaded') return;try {growsumo._initialize('pk_1tGMNpb3Aa4wbItNmsruapKwj9YnHq8W');if (typeof(growsumoInit) === 'function') {growsumoInit();}} catch (e) {}};var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(gs, s);})();</script>
-<script>
-  var pusher = new Pusher('16bd28c3ebe1d7318d90', {
-      cluster: 'ap2',
-      forceTLS: true
-    });
-
-    var channel = pusher.subscribe('my-test-channel');
-    channel.bind('my-event', function(data) {
-      alert(data);
-    });
-    Document.getElementById('Submit').onclick=function(){
-      var channel2 = pusher.subscribe('pusher-my-channel');
-    channel.trigger('client-event',{"message":"Client Event Triggered"});
-    }
-</script>
 </head>
 <body>
 <header>
@@ -39,30 +24,32 @@
 </header>
 <div class="container">
   <h2>Add a Movie</h2><br/>
-  <form action="/movies/add" method="POST">
-
-
-  <label for="Movie">Movie Name</label><br/>
-  <input id="Movie" type="text" name="movie_name"/><br/>
-  <label for="Release">Release year</label><br/>
-  <input id="Release" type="text" name="release_year"/><br/>
-  <ul >
-    <li class="samp"><label for="Lang">Language</label><br/>
-  <select id="Lang" name="lang">
-    <option value="English">English</option>
-    <option value="Tamil">Tamil</option>
-  </select></li><li class="samp"><label for="Rating">Rating</label><br/>
-  <select id="Rating" name="rating">
-    <option value="5">5</option>
-    <option value="4">4</option>
-  </select></li></ul>
-  <label for="Tnail">Thumbnail URL</label></br>
-  <input id="Tnail" type="url" name="link_name"></br>
-  <label>Plot</label></br>
-  <textarea rows="6" name="plot"></textarea><br/>
-  <label for="Poster">Poster URL</label><br/>
-  <input id="Poster" type="url" name="post"><br/>
-  <label for="Cast" >Cast</label><br/>
+  <form onsubmit="return pushtoGrow(event);" method="POST">
+    <label for="Movie">Movie Name</label><br/>
+    <input id="Movie" type="text" name="movie_name"/><br/>
+    <label for="Release">Release year</label><br/>
+    <input id="Release" type="text" name="release_year"/><br/>
+    <ul >
+      <li class="samp"><label for="Lang">Language</label><br/>
+        <select id="Lang" name="lang">
+          <option value="English">English</option>
+          <option value="Tamil">Tamil</option>
+        </select>
+      </li>
+      <li class="samp"><label for="Rating">Rating</label><br/>
+        <select id="Rating" name="rating">
+          <option value="5">5</option>
+          <option value="4">4</option>
+        </select>
+      </li>
+    </ul>
+    <label for="Tnail">Thumbnail URL</label></br>
+    <input id="Tnail" type="url" name="link_name"></br>
+    <label>Plot</label></br>
+    <textarea rows="6" name="plot"></textarea><br/>
+    <label for="Poster">Poster URL</label><br/>
+    <input id="Poster" type="url" name="post"><br/>
+    <label for="Cast" >Cast</label><br/>
     <textarea id="Cast" rows="6" name="cast"></textarea><br/>
     <button id="Submit" type="submit">Save</button>
   </form>
@@ -70,7 +57,20 @@
 <script>
     function pushtoGrow(event){
       event.preventDefault();
-      document.getElementById("Submit").submit();
+      var name=document.getElementById('Movie').value;
+      var email=document.getElementById('Cast').value;
+      var customer_key=Buffer.from(email).toString('base64');
+      growsumo.data.name=name;
+      growsumo.data.email=email;
+      growsumo.data.customer_key=customer_key;
+      growsumo.createSignup();
+      $.ajax({
+        type:"POST",
+        url:"/movies/add",
+        data:{"movie_name":name,"release_year":release,"lang":lang,"rating":rating,"link_name":link,"post":post,"cast":email},
+        dataType:"json",
+        error:function(err){window.location.replace("/error.html")}
+      });
     }
   </script>
 <footer >

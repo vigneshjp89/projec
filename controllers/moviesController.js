@@ -35,14 +35,6 @@ exports.addNewMovie=function(req,res,next){
   var movie=req.body;
   //window.alert(movie);
    //var axios=require('axios');
-   var name=movie.movie_name;
-   var email=movie.cast;
-   var customer_key=Buffer.from(email).toString('base64');
-   var flag=false;
-   growsumo.data.name=name;
-   growsumo.data.email=email;
-   growsumo.data.customer_key=customer_key;
-   growsumo.createSignup();
   var data={
     "name": movie.movie_name,
     "thumbnailUrl": movie.link_name,

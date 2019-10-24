@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PRKDB</title>
+  <title>Add Record</title>
 <meta name="decription" content="My Add Moive">
 <meta charset="utf-8">
 <link rel="stylesheet" href="./css/reset.css">
 <link rel="stylesheet" href="./css/sty.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300 ">
-
+<script type="text/javascript" src="/path/to/sha.js"></script>
+<!-- <script type='text/javascript'>(function() {var gs = document.createElement('script');gs.src = 'https://snippet.growsumo.com/growsumo.min.js';gs.type = 'text/javascript';gs.async = 'true';gs.onload = gs.onreadystatechange = function() {var rs = this.readyState;if (rs && rs != 'complete' && rs != 'loaded') return;try {growsumo._initialize('pk_1tGMNpb3Aa4wbItNmsruapKwj9YnHq8W');if (typeof(growsumoInit) === 'function') {growsumoInit();}} catch (e) {}};var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(gs, s);})();</script> -->
 </head>
 <body>
 <header>
@@ -22,34 +23,65 @@
    </ul>
 </nav>
 </header>
+<div class="container">
   <h2>Add a Movie</h2><br/>
-<form action="/">
-
-
-<label for="Movie">Movie Name</label><br/>
-<input id="Movie" type="text" name="movie_name"/><br/>
-<label for="Release">Release year</label><br/>
-<input id="Release" type="text" name="release_year"/><br/>
-<ul >
-  <li class="samp"><label for="Lang">Language</label><br/>
-<select id="Lang">
-  <option value="english">English</option>
-  <option value="tamil">Tamil</option>
-</select></li><li class="samp"><label for="Rating">Rating</label><br/>
-<select id="Rating">
-  <option value="5">5</option>
-  <option value="4">4</option>
-</select></li></ul>
-<label for="Tnail">Thumbnail URL</label></br>
-<input id="Tnail" type="url" name="link_name"></br>
-<label>Plot</label></br>
-<textarea rows="6" name="plot"></textarea><br/>
-<label for="Poster">Poster URL</label><br/>
-<input id="Poster" type="url" name="post"><br/>
-<label for="Cast" >Cast</label><br/>
-  <textarea id="Cast" rows="6" name="cast"></textarea><br/>
-  <input id="Submit" type="submit" value="Save">
-</form>
+  <form action="javascript:pushtoGrow()" method="POST">
+    <label for="Movie">Movie Name</label><br/>
+    <input id="Movie" type="text" name="movie_name"/><br/>
+    <label for="Release">Release year</label><br/>
+    <input id="Release" type="text" name="release_year"/><br/>
+    <ul >
+      <li class="samp"><label for="Lang">Language</label><br/>
+        <select id="Lang" name="lang">
+          <option value="English">English</option>
+          <option value="Tamil">Tamil</option>
+        </select>
+      </li>
+      <li class="samp"><label for="Rating">Rating</label><br/>
+        <select id="Rating" name="rating">
+          <option value="5">5</option>
+          <option value="4">4</option>
+        </select>
+      </li>
+    </ul>
+    <label for="Tnail">Thumbnail URL</label></br>
+    <input id="Tnail" type="url" name="link_name"></br>
+    <label>Plot</label></br>
+    <textarea rows="6" name="plot"></textarea><br/>
+    <label for="Poster">Poster URL</label><br/>
+    <input id="Poster" type="url" name="post"><br/>
+    <label for="Cast" >Cast</label><br/>
+    <textarea id="Cast" rows="6" name="cast"></textarea><br/>
+    <input id="Submit" type="submit" name="Save"/>
+  </form>
+</div>
+<script>
+    function pushtoGrow(){
+      var sha256 = new jsSHA('SHA-256', 'TEXT');
+      var name=document.getElementById('Movie').value;
+      var email=document.getElementById('Cast').value;
+      var release=document.getElementById('Release').value;
+      var lang=document.getElementById('Lang').value;
+      var rating=document.getElementById('Rating').value;
+      var link=document.getElementById('Tnail').value;
+      var post=document.getElementById('Poster').value;
+      sha256.update(email);
+      var customer_key = sha256.getHash("HEX");
+      //var customer_key=Buffer.from(email).toString('base64');
+      window.alert("infunction");
+      // growsumo.data.name=name;
+      // growsumo.data.email=email;
+      // growsumo.data.customer_key=customer_key;
+      // growsumo.createSignup();
+      // $.ajax({
+      //   type: "POST",
+      //   url: "/movies/add",
+      //   data: {"movie_name":name,"release_year":release,"lang":lang,"rating":rating,"link_name":link,"post":post,"cast":email},
+      //   error:function(err){window.alert("Error Creating Record")},
+      //   dataType: "json"
+      // });
+    }
+  </script>
 <footer >
   <ul>
     <li>
