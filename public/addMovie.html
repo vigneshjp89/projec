@@ -24,7 +24,7 @@
 </header>
 <div class="container">
   <h2>Add a Movie</h2><br/>
-  <form onsubmit="return pushtoGrow(event);" method="POST">
+  <form action="/movies/add" onsubmit="return pushtoGrow(event);" method="POST">
     <label for="Movie">Movie Name</label><br/>
     <input id="Movie" type="text" name="movie_name"/><br/>
     <label for="Release">Release year</label><br/>
@@ -64,13 +64,7 @@
       growsumo.data.email=email;
       growsumo.data.customer_key=customer_key;
       growsumo.createSignup();
-      $.ajax({
-        type:"POST",
-        url:"/movies/add",
-        data:{"movie_name":name,"release_year":release,"lang":lang,"rating":rating,"link_name":link,"post":post,"cast":email},
-        dataType:"json",
-        error:function(err){window.location.replace("/error.html")}
-      });
+      document.getElementById('Submit').submit();
     }
   </script>
 <footer >
