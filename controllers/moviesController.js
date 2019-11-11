@@ -2,9 +2,9 @@ var movies=require('./movieData');
 var dbservice=require('../services/dbservice.js');
 var Pusher=require('pusher');
 var channels_client = new Pusher({
-  appId: '877778',
-  key: '16bd28c3ebe1d7318d90',
-  secret: '0d561a531f329154eb51',
+  appId: '702824',
+  key: '61861b3b18545139a467',
+  secret: '75fd0f860936e07881ae',
   cluster: 'ap2',
   encrypted: true
 });
