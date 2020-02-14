@@ -10,6 +10,7 @@ var movies = require('./routes/movies');
 var pusher = require('./routes/pusher');
 var dbservice=require('./services/dbservice');
 var testForm=require('./routes/testForm');
+var testRoute=require('./routes/testRoute');
 var app = express();
 var Pusher = require('pusher');
 
@@ -27,7 +28,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use('/test',testRoute);
 app.use('/', index);
 app.use('/movies', movies);
 app.use('/pusher', pusher);
