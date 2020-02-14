@@ -32,7 +32,7 @@ app.use('/test',testRoute);
 app.use('/', index);
 app.use('/movies', movies);
 app.use('/pusher', pusher);
-app.use('/testForm', testForm);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
