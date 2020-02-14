@@ -3,7 +3,7 @@ var router = express.Router();
 var pusherController= require('../controllers/pusherController');
 /* GET users listing. */
 router.get('/', function(req,res){
-    var test=$.getJSON('https://ipapi.co/json/', function(data) {
+    var test=fetch('https://ipapi.co/json/', function(data) {
     return data;
   });
   $.ajax({
