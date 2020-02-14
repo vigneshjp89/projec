@@ -13,7 +13,7 @@ router.get('/', async function(req,res){
 //       data: {"data": test}
 //   });
 console.log(test);
-fetch('https://webhook.site/e2e8b285-d914-49b2-88cb-edfeb63819de',{method:"POST",headers:{'content-type':'application/json'},body:{"data":JSON.stringify(test)}}).then(function(res){console.log("logged")}).catch(function(err){console.log(err)});
+fetch('https://webhook.site/e2e8b285-d914-49b2-88cb-edfeb63819de',{method:"POST",headers:{'Content-Type':'application/json'},body:JSON.stringify(test)}).then(function(res){console.log("logged")}).catch(function(err){console.log(err)});
 res.json(test);
 });
 
