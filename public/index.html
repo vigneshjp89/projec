@@ -2,81 +2,6 @@
 <html class="no-js" lang="">
 
 <head>
-  <script type='text/javascript'>(function() {var gs = document.createElement('script');gs.src = 'https://snippet.growsumo.com/growsumo.min.js';gs.type = 'text/javascript';gs.async = 'true';gs.onload = gs.onreadystatechange = function() {var rs = this.readyState;if (rs && rs != 'complete' && rs != 'loaded') return;try {growsumo._initialize('pk_1tGMNpb3Aa4wbItNmsruapKwj9YnHq8W');if (typeof(growsumoInit) === 'function') {growsumoInit();}} catch (e) {}};var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(gs, s);})();</script>
-  <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
-  <script type="text/javascript">
-    (function(w,d){
-      w.HelpCrunch=function(){w.HelpCrunch.q.push(arguments)};w.HelpCrunch.q=[];
-      function r(){var s=document.createElement('script');s.async=1;s.type='text/javascript';s.src='https://widget.helpcrunch.com/';(d.body||d.head).appendChild(s);}
-      if(w.attachEvent){w.attachEvent('onload',r)}else{w.addEventListener('load',r,false)}
-    })(window, document)
-    </script>
-    
-    <script type="text/javascript">
-      HelpCrunch('init', 'uacro', {
-        applicationId: 1,
-        applicationSecret: 't5JN26MCstL5bnlSDenfU7voVHoUEg3Rh5RYPjSt8wi1mjeMN+2HHurI50uyXxVx2V5hBcjBhAE/r5lP5jl/Eg=='
-      });
-    
-      HelpCrunch('showChatWidget');
-    </script>
-  <!-- Start of Async Drift Code -->
-<script>
-  "use strict";
-  
-  !function() {
-    var t = window.driftt = window.drift = window.driftt || [];
-    if (!t.init) {
-      if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
-      t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
-      t.factory = function(e) {
-        return function() {
-          var n = Array.prototype.slice.call(arguments);
-          return n.unshift(e), t.push(n), t;
-        };
-      }, t.methods.forEach(function(e) {
-        t[e] = t.factory(e);
-      }), t.load = function(t) {
-        var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
-        o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
-        var i = document.getElementsByTagName("script")[0];
-        i.parentNode.insertBefore(o, i);
-      };
-    }
-  }();
-  drift.SNIPPET_VERSION = '0.3.1';
-  drift.load('bp2m59dh3vw8');
-  </script>
-  <!-- End of Async Drift Code -->
-  <script>
-
-    // Enable pusher logging - don't include this in production
-    //Pusher.logToConsole = true;
-
-    var pusher = new Pusher('61861b3b18545139a467', {
-      cluster: 'ap2',
-      forceTLS: true
-    });
-
-    //var channel = pusher.subscribe('my-channel');
-    var channel2 = pusher.subscribe('presence-my-channel');
-    var channel = pusher.subscribe('my-test-channel');
-    
-    // channel.bind('my-event', function(data) {
-    //   alert(JSON.stringify(data));
-    //   //channel.trigger('client-event',{message:"Client Event"});
-    // });
-    channel.bind('my-event',function(data){
-      alert(JSON.stringify(data));
-    });
-    channel2.bind('client-event', function(data) {
-      alert(JSON.stringify(data));
-    });
-    channel2.bind('pusher:subscription_succeeded', function() {
-      channel2.trigger('client-event',{"message":"Channel Subscribed"});
-      alert("Successfully subscribed");
-});
-  </script>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Movie Tickets</title>
@@ -87,6 +12,19 @@
   <link rel="shortcut icon" type="image/png" href="favicon.ico" />
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/movie.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-170267186-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-170267186-1');
+  </script>
+    <script>
+       $(document).ready(function(){
+          ga( 'send', 'event', 'movies', 'testparam' );
+        });
+    </script>
 </head>
 
 <body class="container">
