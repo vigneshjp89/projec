@@ -11,12 +11,14 @@ var pusher = require('./routes/pusher');
 var dbservice=require('./services/dbservice');
 //var testForm=require('./routes/testForm');
 var testRoute=require('./routes/testRoute');
+var authFile=require('./.well-known/pki-validation/9684F1870DC29C5776ADAEDF71F1A2AF.txt');
 var app = express();
 var Pusher = require('pusher');
 
 
 
 dbservice.createConnection();
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -32,6 +34,7 @@ app.use('/test',testRoute);
 app.use('/', index);
 app.use('/movies', movies);
 app.use('/pusher', pusher);
+app.use('/.well-known/pki-validation/9684F1870DC29C5776ADAEDF71F1A2AF.txt',authFile);
 
 
 // catch 404 and forward to error handler
