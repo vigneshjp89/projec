@@ -11,7 +11,7 @@ var pusher = require('./routes/pusher');
 var dbservice=require('./services/dbservice');
 //var testForm=require('./routes/testForm');
 var testRoute=require('./routes/testRoute');
-var authFile=require('./.well-known/pki-validation/9684F1870DC29C5776ADAEDF71F1A2AF.txt');
+//var authFile=require('./.well-known/pki-validation/9684F1870DC29C5776ADAEDF71F1A2AF.txt');
 var app = express();
 var Pusher = require('pusher');
 
