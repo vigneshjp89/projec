@@ -34,7 +34,7 @@ app.use('/test',testRoute);
 app.use('/', index);
 app.use('/movies', movies);
 app.use('/pusher', pusher);
-app.use('/.well-known/pki-validation/9684F1870DC29C5776ADAEDF71F1A2AF.txt',authFile);
+app.use('/.well-known/pki-validation/9684F1870DC29C5776ADAEDF71F1A2AF.txt',index);
 
 
 // catch 404 and forward to error handler
