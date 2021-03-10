@@ -38,7 +38,9 @@ app.use('/movies', movies);
 app.use('/pusher', pusher);
 //app.use('/.well-known/pki-validation/9684F1870DC29C5776ADAEDF71F1A2AF.txt',index);
 
-
+app.get('/zohoverify/verifyforzoho.html', function(req, res){
+  res.sendfile(__dirname + '/verifyforzoho.html');
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
