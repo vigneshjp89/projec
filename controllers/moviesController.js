@@ -14,7 +14,7 @@ var channels_client = new Pusher({
 exports.getAllMovies= function(req,res){
   var db=dbservice.database;
   var moviesCollection=db.collection("movies");
-  console.log("Movies List:"+moviesCollection);
+  //console.log("Movies List:"+moviesCollection);
   channels_client.trigger('presence-my-channel', 'client-event', {
     "message": "Presence Channel - Client Event: Page Loaded"
   });
@@ -28,7 +28,7 @@ exports.getAllMovies= function(req,res){
     console.log(outputJSON);
     return res.json(outputJSON);
   });
-   return res.json(movies);
+   //return res.json(movies);
   
 }
 exports.addNewMovie=function(req,res,next){
