@@ -18,7 +18,7 @@ exports.getAllMovies= function(req,res){
     "message": "Presence Channel - Client Event: Page Loaded"
   });
   moviesCollection.find().toArray().then(function(result){
-    //console.log("RESULT: "+result);
+    console.log("RESULT: "+result);
     var outputJSON={
       "isSuccess":true,
       "data":result
