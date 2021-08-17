@@ -26,7 +26,7 @@ exports.getAllMovies= function(req,res){
     console.log(outputJSON);
     return res.json(outputJSON);
   });
-   //return res.json(movies);*
+   return res.json(movies);
   
 }
 exports.addNewMovie=function(req,res,next){
