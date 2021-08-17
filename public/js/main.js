@@ -5,7 +5,7 @@ $.ajax({
   dataType:"json",
   success:function(response){
     console.log("Data from success",response);
-var data=   formObject(response.data);
+var data=   formObject(response);
 constructDOM(data);
   },
   error:function(err){
