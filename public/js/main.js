@@ -44,23 +44,19 @@ console.log(data);
 var categoryContent=[];
 for(var i=0;i<data.length;i++){
   var objectSchema=data[i];
+  var strHtml='<div class="language '+objectSchema.category+'">'+'<h3 class="categoryName">'+objectSchema.category+'</h3>';
   
   for(var j=0;j<objectSchema.movies.length;j++)
   { 
-    if(j==0){
-        var categorySection=$('<div class="language '+objectSchema.category+'">');
-        var categoryTitle=$('<h3 class="categoryName">'+objectSchema.category+'</h3>');
-        categoryContent.push(categorySection);
-        categoryContent.push(categoryTitle);
-    }
+    
     console.log(objectSchema.movies[j].name);
-    var cat=$('<div class="movie fleft"><a href="#"><div class="poster"><img src="'+objectSchema.movies[j].posterUrl+'"/></div></a><p class="release year">'+objectSchema.movies[j].releaseYear+'</p><h4 class="name">'+objectSchema.movies[j].name+'</h4></div>');
-     categoryContent.push(cat);
-    if(j==objectSchema.movies.length-1){
-      var categorySectionEnd=$('</div>');
-      categoryContent.push(categorySectionEnd);
-    }
+    var cat='<div class="movie fleft"><a href="#"><div class="poster"><img src="'+objectSchema.movies[j].posterUrl+'"/></div></a><p class="release year">'+objectSchema.movies[j].releaseYear+'</p><h4 class="name">'+objectSchema.movies[j].name+'</h4></div>';
+     //categoryContent.push(cat);
+    strHtml+=cat;
   }
+      var categorySectionEnd=$(strHtml+'</div>');
+      categoryContent.push(categorySectionEnd);
+
   
 
 }
