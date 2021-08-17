@@ -4,7 +4,7 @@ $.ajax({
   url:"https://localhost:3000/movies/all",
   dataType:"json",
   success:function(response){
-    //console.log("Data from success",response);
+console.log("Data from success",response);
 var data=   formObject(response);
 constructDOM(data);
   },
