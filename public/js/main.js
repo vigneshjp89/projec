@@ -44,7 +44,9 @@ console.log(data);
 var categoryContent=[];
 for(var i=0;i<data.length;i++){
   var objectSchema=data[i];
+  var categorySection=$('<section class="language '+objectSchema.category+'">');
   var categoryTitle=$('<h3 class="categoryName">'+objectSchema.category+'</h3>');
+  categoryContent.push(categorySection);
   categoryContent.push(categoryTitle);
   for(var j=0;j<objectSchema.movies.length;j++)
   {
@@ -52,7 +54,8 @@ for(var i=0;i<data.length;i++){
     var cat=$('<div class="movie fleft"><a href="#"><div class="poster"><img src="'+objectSchema.movies[j].posterUrl+'"/></div></a><p class="release year">'+objectSchema.movies[j].releaseYear+'</p><h4 class="name">'+objectSchema.movies[j].name+'</h4></div>');
      categoryContent.push(cat);
   }
-
+  var categorySectionEnd=$('</section>');
+  categoryContent.push(categorySectionEnd);
 
 }
 $('.content').html(categoryContent);
